@@ -11,6 +11,6 @@ public class Auto extends Fahrzeug implements Versicherbar{
 
     @Override
     public double berechneVersicherungsPrämie() {
-        return 0;
+        return 200 + getAnzahlSitzplaetze() * 0.05;
     }
 }
