@@ -1,11 +1,11 @@
-public abstract class Fahrzeug extends Autovermietung{
-    private int anzahlSitzpleatze;
+public abstract class Fahrzeug {
+    private int anzahlSitzplaetze;
     private boolean mietstatus;
     private String farbe;
     private double maximalGeschwindigkeit;
 
-    public Fahrzeug(int anzahlSitzpleatze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
-        this.anzahlSitzpleatze = anzahlSitzpleatze;
+    public Fahrzeug(int anzahlSitzplaetze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
+        this.anzahlSitzplaetze = anzahlSitzplaetze;
         this.mietstatus = mietstatus;
         this.farbe = farbe;
         this.maximalGeschwindigkeit = maximalGeschwindigkeit;
@@ -13,12 +13,12 @@ public abstract class Fahrzeug extends Autovermietung{
 
     public abstract double berechneMietPreisProTag();
 
-    public int getAnzahlSitzpleatze() {
-        return anzahlSitzpleatze;
+    public int getAnzahlSitzplaetze() {
+        return anzahlSitzplaetze;
     }
 
-    public void setAnzahlSitzpleatze(int anzahlSitzpleatze) {
-        this.anzahlSitzpleatze = anzahlSitzpleatze;
+    public void setAnzahlSitzplaetze(int anzahlSitzplaetze) {
+        this.anzahlSitzplaetze = anzahlSitzplaetze;
     }
 
     public boolean isMietstatus() {
@@ -48,7 +48,7 @@ public abstract class Fahrzeug extends Autovermietung{
     @Override
     public String toString() {
         return "Fahrzeug{" +
-                "anzahlSitzpleatze=" + anzahlSitzpleatze +
+                "anzahlSitzplaetze=" + anzahlSitzplaetze +
                 ", mietstatus=" + mietstatus +
                 ", farbe='" + farbe + '\'' +
                 ", maximalGeschwindigkeit=" + maximalGeschwindigkeit +

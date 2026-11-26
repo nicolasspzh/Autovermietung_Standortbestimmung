@@ -1,16 +1,16 @@
 public class Motorrad extends Fahrzeug implements Versicherbar{
 
-    public Motorrad(int anzahlSitzpleatze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
-        super(anzahlSitzpleatze, mietstatus, farbe, maximalGeschwindigkeit);
+    public Motorrad(int anzahlSitzplaetze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
+        super(anzahlSitzplaetze, mietstatus, farbe, maximalGeschwindigkeit);
     }
 
     @Override
     public double berechneMietPreisProTag() {
-        return 30 + getAnzahlSitzpleatze() * 5;
+        return 30 + getAnzahlSitzplaetze() * 5;
     }
 
     @Override
     public double berechneVersicherungsPrämie() {
-        return 200 + getAnzahlSitzpleatze() * 0.05;
+        return 200 + getAnzahlSitzplaetze() * 0.05;
     }
 }
