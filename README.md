@@ -1,1 +1,1 @@
-# Autovermietung_Standortbestimmung
+Als erstes habe ich den Main.java Code von Confluence abgeschrieben. Das Problem war aber, dass man jedes Word ausschreiben musste. Danach habe ich Martin gefragt und er hat mir gezeigt, wie man es machen muss mit Source Root Ordner.
