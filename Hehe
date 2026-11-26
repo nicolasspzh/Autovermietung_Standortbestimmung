@@ -1,0 +1,56 @@
+# Autovermietung Standortbestimmung
+
+Das ist ein kleines Java-Programm für eine Autovermietung. Es läuft in der Konsole. Man kann damit Fahrzeuge anzeigen, mieten und zurückgeben.
+
+## Aufbau
+
+- `Fahrzeug` ist die abstrakte Oberklasse. Jedes Fahrzeug hat ein Kennzeichen, Sitzplätze, eine Farbe, eine Höchstgeschwindigkeit und einen Mietstatus (frei oder vermietet).
+- `Auto` und `Motorrad` erben von `Fahrzeug`.
+- `Versicherbar` ist ein Interface. Jedes Fahrzeug muss damit seine Versicherungsprämie berechnen.
+- `Autovermietung` verwaltet die Fahrzeuge in einer ArrayList.
+- `Main` startet das Programm und zeigt das Menü.
+
+Beim Start sind vier Fahrzeuge erfasst: zwei Autos (ZH 123456, BE 98765) und zwei Motorräder (LU 4321, SG 555). Alle sind frei.
+
+## Menü
+
+1. Alle Fahrzeuge anzeigen: Typ, Kennzeichen, Farbe, Sitzplätze, Status, Mietpreis und Versicherung.
+2. Fahrzeug mieten: Ich gebe ein Kennzeichen ein, und das Fahrzeug wird auf "vermietet" gesetzt.
+3. Fahrzeug zurückgeben: Ich gebe ein Kennzeichen ein, und das Fahrzeug ist wieder frei.
+0. Beenden.
+
+## Bedingungen
+
+- Mieten geht nur, wenn das Kennzeichen existiert und das Fahrzeug frei ist. Sonst kommt "Kein Fahrzeug mit diesem Kennzeichen gefunden" oder "Dieses Fahrzeug ist bereits vermietet".
+- Zurückgeben geht nur, wenn das Fahrzeug vermietet ist. Sonst kommt "Dieses Fahrzeug ist nicht vermietet".
+- Bei der Suche spielt Gross- und Kleinschreibung keine Rolle. "zh 123456" findet also auch "ZH 123456". Leerzeichen am Anfang und am Ende werden ignoriert.
+- Jede andere Eingabe im Menü gibt "Ungültige Eingabe" aus. Das Menü erscheint dann wieder.
+
+## Preise
+
+Auto und Motorrad rechnen im Moment gleich:
+
+- Mietpreis pro Tag: 30 CHF + 5 CHF pro Sitzplatz. Das Auto mit 5 Sitzplätzen kostet also 55 CHF.
+- Versicherung: 200 CHF + 0.05 CHF pro Sitzplatz.
+
+## Wie ich angefangen habe
+
+Zuerst habe ich den Code von `Main.java` aus Confluence abgeschrieben. Das Problem war, dass ich jedes Wort einzeln ausschreiben musste. Dann habe ich Martin gefragt. Er hat mir gezeigt, wie man es richtig macht, mit dem Ordner als Source Root.
+
+## Was gut gegangen ist
+
+Die Klassenstruktur mit Oberklasse, Vererbung und Interface hat gut funktioniert. Das Menü läuft stabil. Mieten und Zurückgeben prüfen den Status richtig, man kann also nichts doppelt mieten.
+
+## Fehler, aus denen ich gelernt habe
+
+- Ich habe `Auto.java` zuerst nicht committet. Bei mir lief alles, auf GitHub kompilierte es nicht. Seither prüfe ich mit `git status`, ob alle Dateien dabei sind.
+- Die Datei hiess zuerst `Versicherung.java`, das Interface darin aber `Versicherbar`. In Java muss eine public Klasse gleich heissen wie die Datei.
+- Ich habe Kennzeichen zuerst mit `==` verglichen. Die Suche fand nie etwas. Strings vergleiche ich jetzt mit `equals` oder `equalsIgnoreCase`.
+- Im Menü habe ich zuerst `nextInt()` verwendet. Danach wurde die Eingabe für das Kennzeichen übersprungen. Jetzt lese ich alles mit `nextLine()`.
+- Im Konstruktor von `Fahrzeug` habe ich zuerst `kennzeichen = kennzeichen;` geschrieben, ohne `this.`. Das Kennzeichen war danach immer `null`. Mit `this.kennzeichen = kennzeichen;` wird der Wert richtig gespeichert.
+- Kleine Tippfehler wie ein fehlendes Leerzeichen fallen erst auf, wenn ich das Programm wirklich ausführe.
+
+## Starten
+
+javac *.java
+java Main
