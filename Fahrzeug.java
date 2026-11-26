@@ -1,10 +1,12 @@
 public abstract class Fahrzeug {
+    private String kennzeichen;
     private int anzahlSitzplaetze;
     private boolean mietstatus;
     private String farbe;
     private double maximalGeschwindigkeit;
 
-    public Fahrzeug(int anzahlSitzplaetze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
+    public Fahrzeug(String kennzeichen, int anzahlSitzplaetze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
+        this.kennzeichen = kennzeichen;
         this.anzahlSitzplaetze = anzahlSitzplaetze;
         this.mietstatus = mietstatus;
         this.farbe = farbe;
@@ -12,6 +14,10 @@ public abstract class Fahrzeug {
     }
 
     public abstract double berechneMietPreisProTag();
+
+    public String getKennzeichen() {
+        return kennzeichen;
+    }
 
     public int getAnzahlSitzplaetze() {
         return anzahlSitzplaetze;
@@ -48,7 +54,8 @@ public abstract class Fahrzeug {
     @Override
     public String toString() {
         return "Fahrzeug{" +
-                "anzahlSitzplaetze=" + anzahlSitzplaetze +
+                "kennzeichen='" + kennzeichen + '\'' +
+                ", anzahlSitzplaetze=" + anzahlSitzplaetze +
                 ", mietstatus=" + mietstatus +
                 ", farbe='" + farbe + '\'' +
                 ", maximalGeschwindigkeit=" + maximalGeschwindigkeit +

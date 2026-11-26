@@ -1,7 +1,7 @@
 public class Auto extends Fahrzeug implements Versicherbar{
 
-    public Auto(int anzahlSitzplaetze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
-        super(anzahlSitzplaetze, mietstatus, farbe, maximalGeschwindigkeit);
+    public Auto(String kennzeichen, int anzahlSitzplaetze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
+        super(kennzeichen, anzahlSitzplaetze, mietstatus, farbe, maximalGeschwindigkeit);
     }
 
     @Override
