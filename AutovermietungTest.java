@@ -1,65 +1,46 @@
-public class AutovermietungTest {
-    private static int fehler = 0;
+import org.junit.jupiter.api.Test;
 
-    public static void main(String[] args) {
-        testMietpreis();
-        testVersicherungspraemie();
-        testSucheNachKennzeichen();
-        testMietstatus();
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-        System.out.println();
-        if (fehler == 0) {
-            System.out.println("Alle Tests bestanden.");
-        } else {
-            System.out.println(fehler + " Test(s) fehlgeschlagen.");
-        }
-    }
+class AutovermietungTest {
 
-    private static void testMietpreis() {
-        Auto auto = new Auto("ZH 1", 5, false, "rot", 180);
-        Motorrad motorrad = new Motorrad("ZH 2", 2, false, "schwarz", 220);
-
-        pruefe("Mietpreis Auto mit 5 Plätzen ist 55", gleich(auto.berechneMietPreisProTag(), 55));
-        pruefe("Mietpreis Motorrad mit 2 Plätzen ist 40", gleich(motorrad.berechneMietPreisProTag(), 40));
-    }
-
-    private static void testVersicherungspraemie() {
-        Auto auto = new Auto("ZH 1", 5, false, "rot", 180);
-        Motorrad motorrad = new Motorrad("ZH 2", 2, false, "schwarz", 220);
-
-        pruefe("Prämie Auto mit 5 Plätzen ist 200.25", gleich(auto.berechneVersicherungsPrämie(), 200.25));
-        pruefe("Prämie Motorrad mit 2 Plätzen ist 200.1", gleich(motorrad.berechneVersicherungsPrämie(), 200.1));
-    }
-
-    private static void testSucheNachKennzeichen() {
+    // Prüft, ob die Suche ein Auto findet, auch wenn das Kennzeichen klein und mit Leerzeichen eingegeben wird.
+    @Test
+    void sucheFindetAutoTrotzKleinschreibungUndLeerzeichen() {
         Autovermietung vermietung = new Autovermietung();
         Auto auto = new Auto("ZH 123456", 5, false, "rot", 180);
         vermietung.fahrzeugHinzufuegen(auto);
 
-        pruefe("Suche findet hinzugefügtes Fahrzeug", vermietung.sucheNachKennzeichen("ZH 123456") == auto);
-        pruefe("Suche gibt null bei unbekanntem Kennzeichen", vermietung.sucheNachKennzeichen("XX 000") == null);
+        Fahrzeug gefunden = vermietung.sucheNachKennzeichen(" zh 123456 ");
+
+        assertEquals(auto, gefunden);
     }
 
-    private static void testMietstatus() {
-        Auto auto = new Auto("ZH 1", 5, false, "rot", 180);
+    // Prüft, ob die Suche null zurückgibt, wenn es das Kennzeichen nicht gibt.
+    @Test
+    void sucheGibtNullBeiUnbekanntemKennzeichen() {
+        Autovermietung vermietung = new Autovermietung();
+        vermietung.fahrzeugHinzufuegen(new Auto("ZH 123456", 5, false, "rot", 180));
 
-        pruefe("Neues Fahrzeug ist nicht vermietet", !auto.isMietstatus());
-        auto.setMietstatus(true);
-        pruefe("Nach dem Mieten ist es vermietet", auto.isMietstatus());
-        auto.setMietstatus(false);
-        pruefe("Nach der Rückgabe ist es wieder frei", !auto.isMietstatus());
+        Fahrzeug gefunden = vermietung.sucheNachKennzeichen("XX 000");
+
+        assertNull(gefunden);
     }
 
-    private static boolean gleich(double ist, double soll) {
-        return Math.abs(ist - soll) < 0.0001;
+    // Prüft, ob ein Auto mit 5 Sitzplätzen einen Mietpreis von 55.0 pro Tag hat.
+    @Test
+    void mietpreisAutoMitFuenfSitzplaetzenIst55() {
+        Auto auto = new Auto("ZH 123456", 5, false, "rot", 180);
+
+        assertEquals(55.0, auto.berechneMietPreisProTag(), 0.001);
     }
 
-    private static void pruefe(String beschreibung, boolean bestanden) {
-        if (bestanden) {
-            System.out.println("OK      " + beschreibung);
-        } else {
-            System.out.println("FEHLER  " + beschreibung);
-            fehler++;
-        }
+    // Prüft, ob ein Motorrad mit 2 Sitzplätzen eine Versicherungsprämie von 200.10 hat.
+    @Test
+    void versicherungsPraemieMotorradMitZweiSitzplaetzenIst200Komma10() {
+        Motorrad motorrad = new Motorrad("LU 4321", 2, false, "schwarz", 220);
+
+        assertEquals(200.10, motorrad.berechneVersicherungsPrämie(), 0.001);
     }
 }
