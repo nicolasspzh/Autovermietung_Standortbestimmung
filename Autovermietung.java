@@ -39,9 +39,6 @@ public class Autovermietung {
         return null;
     }
 
-    // Polymorphie: berechneMietPreisProTag() und berechneVersicherungsPrämie()
-    // werden auf einem Fahrzeug aufgerufen. Java nimmt automatisch die Version
-    // von Auto oder Motorrad, je nachdem, welches Objekt in der Liste steckt.
     private void fahrzeugAusgeben(Fahrzeug fahrzeug) {
         String status = fahrzeug.isMietstatus() ? "vermietet" : "frei";
         System.out.println(fahrzeug.getClass().getSimpleName()
