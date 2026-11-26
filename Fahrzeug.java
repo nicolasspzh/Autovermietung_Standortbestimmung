@@ -1,4 +1,4 @@
-public abstract class Fahrzeug {
+public abstract class Fahrzeug extends Autovermietung{
     private int anzahlSitzpleatze;
     private boolean mietstatus;
     private String farbe;
@@ -43,5 +43,15 @@ public abstract class Fahrzeug {
 
     public void setMaximalGeschwindigkeit(double maximalGeschwindigkeit) {
         this.maximalGeschwindigkeit = maximalGeschwindigkeit;
+    }
+
+    @Override
+    public String toString() {
+        return "Fahrzeug{" +
+                "anzahlSitzpleatze=" + anzahlSitzpleatze +
+                ", mietstatus=" + mietstatus +
+                ", farbe='" + farbe + '\'' +
+                ", maximalGeschwindigkeit=" + maximalGeschwindigkeit +
+                '}';
     }
 }

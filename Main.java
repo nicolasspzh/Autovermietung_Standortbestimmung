@@ -4,7 +4,7 @@ public class Main {
 
 
         java.util.Scanner scanner = new java.util.Scanner(System.in);
-        boolean weiiter = true;
+        boolean weiter = true;
 
         while (weiter) {
             System.out.println("===Autovermietung Menü ===");

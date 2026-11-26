@@ -1,5 +1,10 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Autovermietung {
-    public void fahrzeigHinzufügen(Fahrzeug fahrzeug) {
+    public void fahrzeigHinzufuegen(Fahrzeug fahrzeug) {
+        ArrayList<Fahrzeug> FahrzeugArrayList = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
     }
     public void alleFahrzeugeAnzeigen() {
@@ -10,5 +15,6 @@ public class Autovermietung {
     }
     public Fahrzeug sucheNachKennzeichen(String kennzeichen) {
 
+        return null;
     }
 }
