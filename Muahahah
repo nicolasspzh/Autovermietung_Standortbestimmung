@@ -1,0 +1,15 @@
+Autovermietung Standortbestimmung
+
+Das ist mein Java-Programm für eine Autovermietung in der Konsole. Man kann Fahrzeuge anzeigen, mieten und zurückgeben.
+
+Fahrzeug ist eine abstrakte Klasse, Auto und Motorrad erben davon. Über das Interface Versicherbar berechnet jedes Fahrzeug seine Versicherung. Autovermietung speichert die Fahrzeuge in einer ArrayList, Main zeigt das Menü.
+
+Mit 1 sieht man alle Fahrzeuge, mit 2 mietet man eins, mit 3 gibt man es zurück, mit 0 ist Schluss. Mieten geht nur, wenn das Fahrzeug frei ist, zurückgeben nur, wenn es vermietet ist. Gross- und Kleinschreibung beim Kennzeichen ist egal. Der Mietpreis ist 30 CHF plus 5 CHF pro Sitzplatz.
+
+Zuerst habe ich Main.java aus Confluence abgeschrieben und musste jedes Wort einzeln ausschreiben. Martin hat mir dann gezeigt, wie es mit dem Source Root Ordner richtig geht.
+
+Die Struktur mit Vererbung und Interface hat gut funktioniert, und das Menü läuft stabil.
+
+Fehler habe ich auch gemacht. Auto.java hatte ich zuerst nicht committet, auf GitHub kompilierte es deshalb nicht. Die Datei Versicherung.java hiess anders als das Interface darin. Kennzeichen habe ich zuerst mit == verglichen statt mit equals, und mit nextInt() wurde die nächste Eingabe übersprungen. Einmal fehlte im Konstruktor das this., dann war das Kennzeichen immer null.
+
+Starten: javac *.java und dann java Main.
