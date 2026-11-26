@@ -1,10 +1,9 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Autovermietung {
-    public void fahrzeigHinzufuegen(Fahrzeug fahrzeug) {
-        ArrayList<Fahrzeug> FahrzeugArrayList = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+    private ArrayList<Fahrzeug> fahrzeuge = new ArrayList<>();
+
+    public void fahrzeugHinzufuegen(Fahrzeug fahrzeug) {
 
     }
     public void alleFahrzeugeAnzeigen() {
