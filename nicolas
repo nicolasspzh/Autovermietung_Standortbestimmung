@@ -1,5 +1,18 @@
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AutovermietungTest {
 
+    @Test
+    void fahrzeugHinzufuegen() {
+    }
+
+    @Test
+    void alleFahrzeugeAnzeigen() {
+    }
+
+    @Test
+    void sucheNachKennzeichen() {
+    }
 }
