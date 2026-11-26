@@ -1,4 +1,4 @@
-public class Auto extends Fahrzeug implements Versicherbar{
+public class Auto extends Fahrzeug {
 
     public Auto(String kennzeichen, int anzahlSitzplaetze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
         super(kennzeichen, anzahlSitzplaetze, mietstatus, farbe, maximalGeschwindigkeit);

@@ -1,4 +1,4 @@
-public abstract class Fahrzeug {
+public abstract class Fahrzeug implements Versicherbar {
     private String kennzeichen;
     private int anzahlSitzplaetze;
     private boolean mietstatus;

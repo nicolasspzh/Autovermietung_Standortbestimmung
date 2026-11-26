@@ -1,4 +1,4 @@
-public class Motorrad extends Fahrzeug implements Versicherbar{
+public class Motorrad extends Fahrzeug {
 
     public Motorrad(String kennzeichen, int anzahlSitzplaetze, boolean mietstatus, String farbe, double maximalGeschwindigkeit) {
         super(kennzeichen, anzahlSitzplaetze, mietstatus, farbe, maximalGeschwindigkeit);
